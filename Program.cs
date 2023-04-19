@@ -10,7 +10,7 @@ namespace Tax_Calculator
             string Answer;
             do
             {
-                User user = new User();
+                var user = new User();
                 user.Display();
                 user.NonTaxableAmount = user.GetExemption();
                 user.TaxableAmount = user.GetTaxableAmount();

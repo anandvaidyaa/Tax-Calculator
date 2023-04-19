@@ -19,5 +19,6 @@ namespace Tax_Calculator.Interface
         public void GetInvestments();
         public void GetLoans();
         public void DisplayFinalTaxes();
+        public void Displayfooter();
     }
 }

@@ -9,7 +9,12 @@ namespace Tax_Calculator.Models
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
-        public string Gender { get; set; }
+        public enum GenderType
+        {
+            Male,
+            Female
+        }
+        public GenderType Gender { get; set; }
         public float Income { get; set; }
         public float Investments { get; set; }
         public float Loan { get; set; }
@@ -98,11 +103,11 @@ namespace Tax_Calculator.Models
             }
             if (gender == "m" || gender == "M")
             {
-                Gender = "Male";
+                Gender = GenderType.Male;
             }
             else
             {
-                Gender = "Female";
+                Gender = GenderType.Female;
             }
         }
 
@@ -229,7 +234,7 @@ namespace Tax_Calculator.Models
                     return tax;
                 }
             }
-            else if (Gender == "Male")
+            else if (Gender == GenderType.Male)
             {
                 if (TaxableAmount >= 0 && TaxableAmount <= 160000)
                 {
