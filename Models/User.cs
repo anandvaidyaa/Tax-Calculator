@@ -34,11 +34,11 @@ namespace Tax_Calculator.Models
             {
                 HomeLoanDeduction = (float)(Loan * 0.8);
             }
-            else 
+            else
             {
                 HomeLoanDeduction = 0;
             }
-            if(HomeLoanDeduction > StandardDeduction)
+            if (HomeLoanDeduction > StandardDeduction)
             {
                 return StandardDeduction;
             }
@@ -46,12 +46,6 @@ namespace Tax_Calculator.Models
             {
                 return HomeLoanDeduction;
             }
-        }
-
-        public float GetIncomeExemption()
-        {
-            float StandardDeduction = (float)(Income * 0.2);
-            return StandardDeduction;
         }
         public float GetTax()
         {
@@ -120,6 +114,22 @@ namespace Tax_Calculator.Models
                     float tax = (float)((TaxableAmount - 500000) * 0.3 + 51000);
                     return tax;
                 }
+            }
+        }
+
+        public float GetTaxableAmount()
+        {
+            if (Investments >= 100000)
+            {
+                float Taxes = Income;
+                Taxes = Taxes - NonTaxableAmount - 100000;
+                return Taxes;
+            }
+            else
+            {
+                float Taxes = Income;
+                Taxes = Taxes - NonTaxableAmount - Investments;
+                return Taxes;
             }
         }
     }

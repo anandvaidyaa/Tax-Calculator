@@ -121,7 +121,6 @@ namespace Tax_Calculator
                     }
                 }
                 Console.WriteLine("=======================================");
-                //DateTime dateOfBirth = DateTime.ParseExact(dateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
                 User user = new User();
                 user.Name = name;
                 user.DateOfBirth = dateOfBirth;
@@ -139,19 +138,7 @@ namespace Tax_Calculator
                     user.Gender = "Female";
                 }
                 user.NonTaxableAmount = user.GetExemption();
-
-                if (user.Investments >= 100000)
-                {
-                    float Taxes = user.Income;
-                    Taxes = Taxes - user.NonTaxableAmount - 100000;
-                    user.TaxableAmount = Taxes;
-                }
-                else
-                {
-                    float Taxes = user.Income;
-                    Taxes = Taxes - user.NonTaxableAmount - user.Investments;
-                    user.TaxableAmount = Taxes;
-                }
+                user.TaxableAmount = user.GetTaxableAmount();
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Taxable Income is: " + user.TaxableAmount);
                 user.PayableTax = user.GetTax();
