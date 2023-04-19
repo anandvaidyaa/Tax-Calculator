@@ -298,9 +298,9 @@ namespace Tax_Calculator.Models
 
         public void Display()
         {
-            Console.WriteLine("=======================================");
+            Displayfooter();
             Console.WriteLine("Tax Calculator");
-            Console.WriteLine("=======================================");
+            Displayfooter();
             Console.WriteLine("");
             while (true)
             {
@@ -317,29 +317,33 @@ namespace Tax_Calculator.Models
                 }
 
             }
-            Console.WriteLine("=======================================");
+            Displayfooter();
             GetDOB();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             GetGender();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             GetIncome();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             GetInvestments();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             GetLoans();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             Console.WriteLine("Your age is: " + Age);
         }
 
         public void DisplayFinalTaxes()
         {
-            Console.WriteLine("=======================================");
+            Displayfooter();
             Console.WriteLine("Your Taxable Income is: " + TaxableAmount);
             PayableTax = GetTax();
-            Console.WriteLine("=======================================");
+            Displayfooter();
             Console.WriteLine("Your Payable Tax is: " + PayableTax);
-            Console.WriteLine("=======================================");
+            Displayfooter();
         }
 
+        public void Displayfooter()
+        {
+            Console.WriteLine("=======================================");
+        }
     }
 }
