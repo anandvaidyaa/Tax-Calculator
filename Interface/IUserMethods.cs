@@ -9,10 +9,15 @@ namespace Tax_Calculator.Interface
 {
     public interface IUserMethods
     {
-        public int GetAge(DateTime dateOfBirth);
         public float GetTax();
         public float GetExemption();
         public float GetTaxableAmount();
-
+        public void Display();
+        public void GetDOB();
+        public void GetGender();
+        public void GetIncome();
+        public void GetInvestments();
+        public void GetLoans();
+        public void DisplayFinalTaxes();
     }
 }
