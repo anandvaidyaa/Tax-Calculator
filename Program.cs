@@ -180,12 +180,20 @@ namespace Tax_Calculator
                 Console.WriteLine("Your Payable Tax is: " + user.PayableTax);
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Do you want to Continue [Y/N]");
-                Answer = Console.ReadLine();
-                //if (Answer == "n" || Answer == "N")
-                //{
-                //    break;
-                //}
-            } while (Answer == "n" || Answer == "N");
+                while (true)
+                {
+                    Console.WriteLine("Do you want to Continue [Y/N]");
+                    Answer = Console.ReadLine();
+                    if (Answer.Equals("Y", StringComparison.OrdinalIgnoreCase) || Answer.Equals("N", StringComparison.OrdinalIgnoreCase))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid character (Y/N).");
+                    }
+                }
+            } while (Answer == "y" || Answer == "Y");
         }
 
     }
