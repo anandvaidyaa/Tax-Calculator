@@ -157,7 +157,7 @@ namespace Tax_Calculator
                 }
                 else
                 {
-                    user.TaxableAmount = user.Income - user.Investments;
+                    user.TaxableAmount = user.Income - user.Investments - user.NonTaxableAmount;
                 }
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Taxable Income is: " + user.TaxableAmount);
