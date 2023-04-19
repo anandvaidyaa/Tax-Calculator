@@ -11,7 +11,7 @@ namespace Tax_Calculator.Interface
     {
         public int GetAge(DateTime dateOfBirth);
         public float GetTax();
-        public float GetHomeLoanExemption();
+        public float GetExemption();
         public float GetIncomeExemption();
         
     }

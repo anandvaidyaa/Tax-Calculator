@@ -26,10 +26,26 @@ namespace Tax_Calculator.Models
             }
             return age;
         }
-        public float GetHomeLoanExemption()
+        public float GetExemption()
         {
-            float HomeLoanDeduction = (float)(Loan * 0.8);
-            return HomeLoanDeduction;
+            float StandardDeduction = (float)(Income * 0.2);
+            float HomeLoanDeduction;
+            if (Loan > 0)
+            {
+                HomeLoanDeduction = (float)(Loan * 0.8);
+            }
+            else 
+            {
+                HomeLoanDeduction = 0;
+            }
+            if(HomeLoanDeduction > StandardDeduction)
+            {
+                return StandardDeduction;
+            }
+            else
+            {
+                return HomeLoanDeduction;
+            }
         }
 
         public float GetIncomeExemption()

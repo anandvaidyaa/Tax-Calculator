@@ -138,26 +138,19 @@ namespace Tax_Calculator
                 {
                     user.Gender = "Female";
                 }
-                if (user.Loan > 0)
-                {
-                    float HomeLoanExemption = user.GetHomeLoanExemption();
-                    float IncomeExemption = user.GetIncomeExemption();
-                    if (HomeLoanExemption > IncomeExemption)
-                    {
-                        user.NonTaxableAmount = IncomeExemption;
-                    }
-                    else
-                    {
-                        user.NonTaxableAmount = HomeLoanExemption;
-                    }
-                }
+                user.NonTaxableAmount = user.GetExemption();
+
                 if (user.Investments >= 100000)
                 {
-                    user.TaxableAmount = user.Income - user.NonTaxableAmount - 100000;
+                    float Taxes = user.Income;
+                    Taxes = Taxes - user.NonTaxableAmount - 100000;
+                    user.TaxableAmount = Taxes;
                 }
                 else
                 {
-                    user.TaxableAmount = user.Income - user.Investments - user.NonTaxableAmount;
+                    float Taxes = user.Income;
+                    Taxes = Taxes - user.NonTaxableAmount - user.Investments;
+                    user.TaxableAmount = Taxes;
                 }
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Taxable Income is: " + user.TaxableAmount);
@@ -165,7 +158,6 @@ namespace Tax_Calculator
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Payable Tax is: " + user.PayableTax);
                 Console.WriteLine("=======================================");
-                Console.WriteLine("Do you want to Continue [Y/N]");
                 while (true)
                 {
                     Console.WriteLine("Do you want to Continue [Y/N]");
