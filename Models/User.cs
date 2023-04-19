@@ -26,7 +26,6 @@ namespace Tax_Calculator.Models
             }
             return age;
         }
-
         public float GetHomeLoanExemption()
         {
             float HomeLoanDeduction = (float)(Loan * 0.8);
@@ -38,76 +37,73 @@ namespace Tax_Calculator.Models
             float StandardDeduction = (float)(Income * 0.2);
             return StandardDeduction;
         }
-
-
-        public float GetTaxFemale()
+        public float GetTax()
         {
-
-            if (TaxableAmount >= 0 && TaxableAmount <= 190000)
+            if (Age >= 60)
             {
-                return 0;
+                if (TaxableAmount >= 0 && TaxableAmount <= 240000)
+                {
+                    return 0;
+                }
+                else if (TaxableAmount >= 240001 && TaxableAmount <= 300000)
+                {
+                    float tax = (float)((TaxableAmount - 240000) * 0.1);
+                    return tax;
+                }
+                else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
+                {
+                    float tax = (float)((TaxableAmount - 300000) * 0.2 + 6000);
+                    return tax;
+                }
+                else
+                {
+                    float tax = (float)((TaxableAmount - 500000) * 0.3 + 46000);
+                    return tax;
+                }
             }
-            else if (TaxableAmount >= 190001 && TaxableAmount <= 300000)
+            else if (Gender == "Male")
             {
-                float tax = (float)((TaxableAmount - 190000) * 0.1);
-                return tax;
-            }
-            else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
-            {
-                float tax = (float)((TaxableAmount - 300000) * 0.2 + 11000);
-                return tax;
+                if (TaxableAmount >= 0 && TaxableAmount <= 160000)
+                {
+                    return 0;
+                }
+                else if (TaxableAmount >= 160001 && TaxableAmount <= 300000)
+                {
+                    float tax = (float)((TaxableAmount - 160000) * 0.1);
+                    return tax;
+                }
+                else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
+                {
+                    float tax = (float)((TaxableAmount - 300000) * 0.2 + 14000);
+                    return tax;
+                }
+                else
+                {
+                    float tax = (float)((TaxableAmount - 500000) * 0.3 + 54000);
+                    return tax;
+                }
             }
             else
             {
-                float tax = (float)((TaxableAmount - 500000) * 0.3 + 51000);
-                return tax;
-            }
-        }
-
-        public float GetTaxMale()
-        {
-            if (TaxableAmount >= 0 && TaxableAmount <= 160000)
-            {
-                return 0;
-            }
-            else if (TaxableAmount >= 160001 && TaxableAmount <= 300000)
-            {
-                float tax = (float)((TaxableAmount - 160000) * 0.1);
-                return tax;
-            }
-            else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
-            {
-                float tax = (float)((TaxableAmount - 300000) * 0.2 + 14000);
-                return tax;
-            }
-            else
-            {
-                float tax = (float)((TaxableAmount - 500000) * 0.3 + 54000);
-                return tax;
-            }
-        }
-
-        public float GetTaxSenior()
-        {
-
-            if (TaxableAmount >= 0 && TaxableAmount <= 240000)
-            {
-                return 0;
-            }
-            else if (TaxableAmount >= 240001 && TaxableAmount <= 300000)
-            {
-                float tax = (float)((TaxableAmount - 240000) * 0.1);
-                return tax;
-            }
-            else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
-            {
-                float tax = (float)((TaxableAmount - 300000) * 0.2 + 6000);
-                return tax;
-            }
-            else
-            {
-                float tax = (float)((TaxableAmount - 500000) * 0.3 + 46000);
-                return tax;
+                if (TaxableAmount >= 0 && TaxableAmount <= 190000)
+                {
+                    return 0;
+                }
+                else if (TaxableAmount >= 190001 && TaxableAmount <= 300000)
+                {
+                    float tax = (float)((TaxableAmount - 190000) * 0.1);
+                    return tax;
+                }
+                else if (TaxableAmount >= 300001 && TaxableAmount <= 500000)
+                {
+                    float tax = (float)((TaxableAmount - 300000) * 0.2 + 11000);
+                    return tax;
+                }
+                else
+                {
+                    float tax = (float)((TaxableAmount - 500000) * 0.3 + 51000);
+                    return tax;
+                }
             }
         }
     }

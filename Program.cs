@@ -164,18 +164,7 @@ namespace Tax_Calculator
                 }
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Taxable Income is: " + user.TaxableAmount);
-                if (user.Age >= 60)
-                {
-                    user.PayableTax = user.GetTaxSenior();
-                }
-                if (user.Gender == "Male")
-                {
-                    user.PayableTax = user.GetTaxMale();
-                }
-                if (user.Gender == "Female")
-                {
-                    user.PayableTax = user.GetTaxFemale();
-                }
+                user.PayableTax = user.GetTax();
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Your Payable Tax is: " + user.PayableTax);
                 Console.WriteLine("=======================================");
