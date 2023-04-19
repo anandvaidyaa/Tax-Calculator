@@ -7,7 +7,8 @@ namespace Tax_Calculator
     {
         static void Main(string[] args)
         {
-            while (true)
+            string Answer;
+            do
             {
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Tax Calculator");
@@ -179,12 +180,12 @@ namespace Tax_Calculator
                 Console.WriteLine("Your Payable Tax is: " + user.PayableTax);
                 Console.WriteLine("=======================================");
                 Console.WriteLine("Do you want to Continue [Y/N]");
-                string Answer = Console.ReadLine();
-                if (Answer == "n" || Answer == "N")
-                {
-                    break;
-                }
-            }
+                Answer = Console.ReadLine();
+                //if (Answer == "n" || Answer == "N")
+                //{
+                //    break;
+                //}
+            } while (Answer == "n" || Answer == "N");
         }
 
     }
