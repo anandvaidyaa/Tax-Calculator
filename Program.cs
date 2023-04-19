@@ -121,9 +121,7 @@ namespace Tax_Calculator
                     }
                 }
                 Console.WriteLine("=======================================");
-
                 //DateTime dateOfBirth = DateTime.ParseExact(dateOfBirthString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-
                 User user = new User();
                 user.Name = name;
                 user.DateOfBirth = dateOfBirth;
@@ -131,7 +129,6 @@ namespace Tax_Calculator
                 user.Investments = investments;
                 user.Age = user.GetAge(user.DateOfBirth);
                 user.Loan = loans;
-
                 Console.WriteLine("Your age is: " + user.Age);
                 if (gender == "m" || gender == "M")
                 {
